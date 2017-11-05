@@ -1,0 +1,18 @@
+# [START app_yaml]
+runtime: nodejs
+env: flex
+# [END app_yaml]
+
+# Temporary setting to keep gcloud from uploading not required files for deployment
+skip_files:
+- ^node_modules$
+- ^app\.yaml
+- ^README\..*
+- \.gitignore
+- ^\.git$
+- ^src$
+- ^e2e$
+- \.editorconfig
+- ^karma\.config\.js
+- ^protractor\.conf\.js
+- ^tslint\.json
