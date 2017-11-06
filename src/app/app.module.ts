@@ -5,8 +5,9 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { LoginFormComponent } from './login-form/login-form.component';
+import { CreateUserComponent } from './create-user/create-user.component';
 import { Routes, RouterModule } from '@angular/router';
-import { LoginService } from "./services/login.service";
+import { AuthService } from "./services/auth.service";
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from '../environments/environment';
@@ -14,12 +15,14 @@ import { environment } from '../environments/environment';
 const appRoutes: Routes = [
   { path: '', component: LoginFormComponent },
   { path: 'login', component: LoginFormComponent },
+  { path: 'create', component: CreateUserComponent }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginFormComponent
+    LoginFormComponent,
+    CreateUserComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +32,7 @@ const appRoutes: Routes = [
     AngularFireAuthModule
   ],
   providers: [
-    LoginService
+    AuthService
   ],
   bootstrap: [AppComponent]
 })
