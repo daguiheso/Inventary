@@ -1,16 +1,17 @@
 import { Injectable } from '@angular/core';
-// import { AngularFireDatabase } from "angularfire2/database";
+import { AngularFireAuth } from 'angularfire2/auth';
 
 @Injectable()
 
 export class LoginService {
 
-	// constructor(private afDB: AngularFireDatabase) {
+	constructor(public afAuth: AngularFireAuth) {
 
-	// }
+	}
 
 	public login(user) {
 		console.log(user)
-		// this.afDB.database.ref('places/1').set(user);
+		this.afAuth.auth.createUserWithEmailAndPassword(user.email, user.password)
+
 	}
 }
